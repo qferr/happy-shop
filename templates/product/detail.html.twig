@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ product.name }}{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row mt-3 mb-4">
+            <div class="col-md-4">
+                <img src="https://via.placeholder.com/600x400" alt="{{ product.name }}" class="img-fluid">
+            </div>
+            <div class="col-md-8">
+                <h1 class="mt-4 mt-md-0">{{ product.name }}</h1>
+                <h2>{{ product.price }} €</h2>
+                <hr>
+                <b>Description: </b>{{ product.description }}
+                {{ form_start(form, {'attr': {'class': 'mt-4 p-4 bg-light'}}) }}
+                <div class="form-group">
+                    {{ form_label(form.quantity) }}
+                    {{ form_widget(form.quantity, {
+                        'attr': {
+                            'class': 'form-control ' ~ (form.quantity.vars.valid ? '' : 'is-invalid')
+                        }
+                    }) }}
+                    <div class="invalid-feedback">
+                        {{ form_errors(form.quantity) }}
+                    </div>
+                </div>
+                {{ form_widget(form.add, {'attr': {'class': 'btn btn-warning w-25'}}) }}
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

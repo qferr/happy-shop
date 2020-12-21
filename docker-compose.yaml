@@ -1,0 +1,11 @@
+version: '3'
+services:
+  database:
+    image: library/mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: happy
+      MYSQL_DATABASE: happy_shop
+    volumes:
+      - ./docker/mysql/my.cnf:/etc/mysql/conf.d/my.cnf
+    ports:
+      - 3306:3306

@@ -32,13 +32,13 @@ trait CartAssertionsTrait
         Assert::assertEquals(
             'Your cart is empty. Go to the product list.',
             $infoText,
-            "The cart should be empty."
+            'The cart should be empty.'
         );
     }
 
     public static function assertCartTotalEquals(Crawler $crawler, $expectedTotal)
     {
-        $actualTotal = (float)$crawler
+        $actualTotal = (float) $crawler
             ->filter('.col-md-4 .list-group-item span')
             ->getNode(0)
             ->textContent;
@@ -52,7 +52,7 @@ trait CartAssertionsTrait
 
     public static function assertCartContainsProductWithQuantity(Crawler $crawler, string $productName, int $expectedQuantity): void
     {
-        $actualQuantity = (int)self::getItemByProductName($crawler, $productName)
+        $actualQuantity = (int) self::getItemByProductName($crawler, $productName)
             ->filter('input[type="number"]')
             ->attr('value');
 

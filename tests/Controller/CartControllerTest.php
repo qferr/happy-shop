@@ -42,7 +42,7 @@ class CartControllerTest extends WebTestCase
         $crawler = $client->request('GET', $product['url']);
 
         // Adds the product twice to the cart
-        for ($i=0 ; $i<2 ;$i++) {
+        for ($i = 0; $i < 2; ++$i) {
             $form = $crawler->filter('form')->form();
             $form->setValues(['add_to_cart[quantity]' => 1]);
             $client->submit($form);
@@ -98,7 +98,7 @@ class CartControllerTest extends WebTestCase
 
         // Updates the quantity
         $cartForm = $crawler->filter('.col-md-8 form')->form([
-            'cart[items][0][quantity]' => 4
+            'cart[items][0][quantity]' => 4,
         ]);
         $client->submit($cartForm);
         $crawler = $client->followRedirect();
@@ -125,13 +125,13 @@ class CartControllerTest extends WebTestCase
         $crawler = $client->request('GET', '/');
         $productNode = $crawler->filter('.card')->eq(rand(0, 9));
         $productName = $productNode->filter('.card-title')->getNode(0)->textContent;
-        $productPrice = (float)$productNode->filter('span.h5')->getNode(0)->textContent;
+        $productPrice = (float) $productNode->filter('span.h5')->getNode(0)->textContent;
         $productLink = $productNode->filter('.btn-dark')->link();
 
         return [
             'name' => $productName,
             'price' => $productPrice,
-            'url' => $productLink->getUri()
+            'url' => $productLink->getUri(),
         ];
     }
 }

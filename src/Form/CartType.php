@@ -17,7 +17,7 @@ class CartType extends AbstractType
     {
         $builder
             ->add('items', CollectionType::class, [
-                'entry_type' => CartItemType::class
+                'entry_type' => CartItemType::class,
             ])
             ->add('save', SubmitType::class)
             ->add('clear', SubmitType::class);

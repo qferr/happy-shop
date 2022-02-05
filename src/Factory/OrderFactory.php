@@ -1,23 +1,18 @@
 <?php
 
-
 namespace App\Factory;
-
 
 use App\Entity\Order;
 use App\Entity\OrderItem;
 use App\Entity\Product;
 
 /**
- * Class OrderFactory
- * @package App\Factory
+ * Class OrderFactory.
  */
 class OrderFactory
 {
     /**
      * Creates an order.
-     *
-     * @return Order
      */
     public function create(): Order
     {
@@ -32,10 +27,6 @@ class OrderFactory
 
     /**
      * Creates an item for a product.
-     *
-     * @param Product $product
-     *
-     * @return OrderItem
      */
     public function createItem(Product $product): OrderItem
     {

@@ -22,9 +22,6 @@ class OrderRepository extends ServiceEntityRepository
     /**
      * Finds carts that have not been modified since the given date.
      *
-     * @param \DateTime $limitDate
-     * @param int $limit
-     *
      * @return int|mixed|string
      */
     public function findCartsNotModifiedSince(\DateTime $limitDate, int $limit = 10): array

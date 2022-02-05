@@ -10,7 +10,7 @@ use Symfony\Component\Form\FormEvents;
 class RemoveCartItemListener implements EventSubscriberInterface
 {
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     public static function getSubscribedEvents(): array
     {
@@ -19,8 +19,6 @@ class RemoveCartItemListener implements EventSubscriberInterface
 
     /**
      * Removes items from the cart based on the data sent from the user.
-     *
-     * @param FormEvent $event
      */
     public function postSubmit(FormEvent $event): void
     {

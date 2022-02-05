@@ -45,7 +45,7 @@ class Order
      *
      * @var string
      */
-    const STATUS_CART = 'cart';
+    public const STATUS_CART = 'cart';
 
     public function __construct()
     {
@@ -73,6 +73,7 @@ class Order
                 $existingItem->setQuantity(
                     $existingItem->getQuantity() + $item->getQuantity()
                 );
+
                 return $this;
             }
         }
@@ -147,8 +148,6 @@ class Order
 
     /**
      * Calculates the order total.
-     *
-     * @return float
      */
     public function getTotal(): float
     {
